@@ -25,7 +25,7 @@ export class PlaceOrderComponent {
     }
     const token = localStorage.getItem("jwtToken")
     if (!token) {
-      window.alert("You can't Access this! because your not an loggedin user!")
+      window.alert("You can't Access this! please login as Admin because your not an loggedin user!")
       this.route.navigate(['/login'])
     }
     this.routerId = '';

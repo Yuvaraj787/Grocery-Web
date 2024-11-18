@@ -37,8 +37,8 @@ export class LandingPageComponent {
     });
     const jwtToken = localStorage.getItem('adminJwtToken')
     if (jwtToken) {
-      window.alert("You can't Access this!")
-      this.route.navigate(['/admin/home'])
+      window.alert("You can't Access this! please login as Admin")
+      this.route.navigate(['/login'])
     }
   }
 

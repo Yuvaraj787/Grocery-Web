@@ -25,7 +25,7 @@ export class HomeComponent {
     });
     const jwtToken = localStorage.getItem('adminJwtToken')
     if (!jwtToken){
-      window.alert("You can't Access this!")
+      window.alert("You can't Access this! please login as Admin")
       this.route.navigate(['/login'])
     }
   }
