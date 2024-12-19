@@ -24,7 +24,7 @@ export class MyCartComponent {
     }
     const token = localStorage.getItem("jwtToken")
     if (!token) {
-      window.alert("You can't Access this! because your not logedin user!")
+      window.alert("You can't Access this! please login as Admin because your not logedin user!")
       this.route.navigate(['/login'])
     }
   }

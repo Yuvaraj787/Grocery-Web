@@ -21,7 +21,7 @@ export class FeedbackComponent {
     }
     const token = localStorage.getItem("jwtToken")
     if (!token) {
-      window.alert("You can't Access this! because your not an Admin!")
+      window.alert("You can't Access this! please login as Admin because your not an Admin!")
       this.route.navigate(['/login'])
     }
   }

@@ -36,7 +36,7 @@ export class UpdateProductComponent {
 
     const jwtToken = localStorage.getItem('adminJwtToken');
     if (!jwtToken) {
-      window.alert("You can't access this!");
+      window.alert("You can't Access this! please login as Admin");
       this.router.navigate(['/login']);
     }
 
