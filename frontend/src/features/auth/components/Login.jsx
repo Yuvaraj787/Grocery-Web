@@ -59,21 +59,13 @@ export const Login = () => {
   return (
     <Stack width={'100vw'} height={'100vh'} flexDirection={'row'} sx={{overflowY:"hidden"}}>
         
-        {
-          !is900 && 
-       
-        <Stack bgcolor={'black'} flex={1} justifyContent={'center'} >
-          <Lottie animationData={ecommerceOutlookAnimation}/>
-        </Stack> 
-        }
 
         <Stack flex={1} justifyContent={'center'} alignItems={'center'}>
 
               <Stack flexDirection={'row'} justifyContent={'center'} alignItems={'center'}>
 
                 <Stack rowGap={'.4rem'}>
-                  <Typography variant='h2' sx={{wordBreak:"break-word"}} fontWeight={600}>Mern Shop</Typography>
-                  <Typography alignSelf={'flex-end'} color={'GrayText'} variant='body2'>- Shop Anything</Typography>
+                  <Typography variant='h2' sx={{wordBreak:"break-word"}} fontWeight={600}>Grocery Shop</Typography>
                 </Stack>
 
               </Stack>

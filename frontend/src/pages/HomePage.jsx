@@ -21,7 +21,6 @@ export const HomePage = () => {
     <>
     <Navbar isProductList={true}/>
     <ProductList/>
-    <Footer/>
     </>
   )
 }

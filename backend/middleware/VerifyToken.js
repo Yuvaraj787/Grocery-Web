@@ -13,7 +13,7 @@ exports.verifyToken=async(req,res,next)=>{
         }
 
         // verifies the token 
-        const decodedInfo=jwt.verify(token,process.env.SECRET_KEY)
+        const decodedInfo=jwt.verify(token,"test")
 
         // checks if decoded info contains legit details, then set that info in req.user and calls next
         if(decodedInfo && decodedInfo._id && decodedInfo.email){

@@ -59,7 +59,7 @@ export const Navbar=({isProductList=false})=> {
         <Toolbar sx={{p:1,height:"4rem",display:"flex",justifyContent:"space-around"}}>
 
           <Typography variant="h6" noWrap component="a" href="/" sx={{ mr: 2, display: { xs: 'none', md: 'flex' },fontWeight: 700, letterSpacing: '.3rem', color: 'inherit', textDecoration: 'none', }}>
-            MERN SHOP
+            GROCERY SHOP
           </Typography>
 
 
@@ -89,7 +89,6 @@ export const Navbar=({isProductList=false})=> {
 
               {
                 loggedInUser?.isAdmin && 
-              
                 <MenuItem  onClick={handleCloseUserMenu}>
                   <Typography component={Link} color={'text.primary'} sx={{textDecoration:"none"}} to="/admin/add-product" textAlign="center">Add new Product</Typography>
                 </MenuItem>
@@ -122,9 +121,6 @@ export const Navbar=({isProductList=false})=> {
                           <IconButton component={Link} to={"/wishlist"}><FavoriteBorderIcon /></IconButton>
                       </Badge>
                   </Stack>
-            }
-            {
-              isProductList && <IconButton onClick={handleToggleFilters}><TuneIcon sx={{color:isProductFilterOpen?"black":""}}/></IconButton>
             }
             
             </Stack>

@@ -8,7 +8,6 @@ export const WishlistPage = () => {
     <>
     <Navbar/>
     <Wishlist/>
-    <Footer/>
     </>
   )
 }

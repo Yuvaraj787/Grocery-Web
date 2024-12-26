@@ -8,7 +8,6 @@ export const UserOrdersPage = () => {
     <>
     <Navbar/>
     <UserOrders/>
-    <Footer/>
     </>
   )
 }

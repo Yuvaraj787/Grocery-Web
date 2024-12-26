@@ -3,6 +3,7 @@ import {axiosi} from '../../config/axios'
 export const signup=async(cred)=>{
     try {
         const res=await axiosi.post("auth/signup",cred)
+        console.log(res);
         return res.data
     } catch (error) {
         throw error.response.data

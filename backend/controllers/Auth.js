@@ -32,10 +32,9 @@ exports.signup=async(req,res)=>{
 
         // sending jwt token in the response cookies
         res.cookie('token',token,{
-            sameSite:process.env.PRODUCTION==='true'?"None":'Lax',
-            maxAge:new Date(Date.now() + (parseInt(process.env.COOKIE_EXPIRATION_DAYS * 24 * 60 * 60 * 1000))),
+            maxAge:new Date(Date.now() + (parseInt(100 * 24 * 60 * 60 * 1000))),
             httpOnly:true,
-            secure:process.env.PRODUCTION==='true'?true:false
+            secure:false
         })
 
         res.status(201).json(sanitizeUser(createdUser))
@@ -62,10 +61,9 @@ exports.login=async(req,res)=>{
 
             // sending jwt token in the response cookies
             res.cookie('token',token,{
-                sameSite:process.env.PRODUCTION==='true'?"None":'Lax',
-                maxAge:new Date(Date.now() + (parseInt(process.env.COOKIE_EXPIRATION_DAYS * 24 * 60 * 60 * 1000))),
+                maxAge:new Date(Date.now() + (parseInt(100 * 24 * 60 * 60 * 1000))),
                 httpOnly:true,
-                secure:process.env.PRODUCTION==='true'?true:false
+                secure:true
             })
             return res.status(200).json(sanitizeUser(existingUser))
         }
@@ -133,7 +131,7 @@ exports.resendOtp=async(req,res)=>{
         const otp=generateOTP()
         const hashedOtp=await bcrypt.hash(otp,10)
 
-        const newOtp=new Otp({user:req.body.user,otp:hashedOtp,expiresAt:Date.now()+parseInt(process.env.OTP_EXPIRATION_TIME)})
+        const newOtp=new Otp({user:req.body.user,otp:hashedOtp,expiresAt:Date.now()+parseInt(1000)})
         await newOtp.save()
 
         await sendMail(existingUser.email,`OTP Verification for Your MERN-AUTH-REDUX-TOOLKIT Account`,`Your One-Time Password (OTP) for account verification is: <b>${otp}</b>.</br>Do not share this OTP with anyone for security reasons`)
@@ -165,7 +163,7 @@ exports.forgotPassword=async(req,res)=>{
         const hashedToken=await bcrypt.hash(passwordResetToken,10)
 
         // saves hashed token in passwordResetToken collection
-        newToken=new PasswordResetToken({user:isExistingUser._id,token:hashedToken,expiresAt:Date.now() + parseInt(process.env.OTP_EXPIRATION_TIME)})
+        newToken=new PasswordResetToken({user:isExistingUser._id,token:hashedToken,expiresAt:Date.now() + parseInt(1000)})
         await newToken.save()
 
         // sends the password reset link to the user's mail
@@ -236,9 +234,8 @@ exports.logout=async(req,res)=>{
     try {
         res.cookie('token',{
             maxAge:0,
-            sameSite:process.env.PRODUCTION==='true'?"None":'Lax',
             httpOnly:true,
-            secure:process.env.PRODUCTION==='true'?true:false
+            secure:false
         })
         res.status(200).json({message:'Logout successful'})
     } catch (error) {

@@ -179,9 +179,7 @@ export const ProductList = () => {
 
     {
         productFetchStatus==='pending'?
-        <Stack width={is500?"35vh":'25rem'} height={'calc(100vh - 4rem)'} justifyContent={'center'} marginRight={'auto'} marginLeft={'auto'}>
-            <Lottie animationData={loadingAnimation}/>
-        </Stack>
+<h1>Loading</h1>
         :
         <>
         <motion.div style={{position:"fixed",backgroundColor:"white",height:"100vh",padding:'1rem',overflowY:"scroll",width:is500?"100vw":"30rem",zIndex:500}}  variants={{show:{left:0},hide:{left:-500}}} initial={'hide'} transition={{ease:"easeInOut",duration:.7,type:"spring"}} animate={isProductFilterOpen===true?"show":"hide"}>
@@ -255,15 +253,6 @@ export const ProductList = () => {
         
         <Stack mb={'3rem'}>
             
-
-                {/* banners section */}
-                {
-                    !is600 && 
-                
-                <Stack sx={{width:"100%",height:is800?"300px":is1200?"400px":"500px"}}>
-                    <ProductBanner images={bannerImages}/>
-                </Stack>
-                }
 
                 {/* products */}
                 <Stack rowGap={5} mt={is600?2:0}>
